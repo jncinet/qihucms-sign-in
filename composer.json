@@ -1,0 +1,29 @@
+{
+  "name": "jncinet/qihucms-sign-in",
+  "description": "qihucms sign in.",
+  "keywords": [
+    "qihucms",
+    "sign in"
+  ],
+  "homepage": "https://www.qihucms.com",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "zhangye",
+      "email": "y@qilephp.com"
+    }
+  ],
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "Qihucms\\SignIn\\": "src/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Qihucms\\SignIn\\SignInServiceProvider"
+      ]
+    }
+  }
+}
