@@ -5,11 +5,12 @@ use Illuminate\Routing\Router;
 // 接口
 Route::group([
     'namespace' => 'Qihucms\SignIn\Controllers\Api',
-    'prefix' => 'sign-in',
+    'prefix' => config('qihu.sign_in_prefix', 'sign'),
     'middleware' => ['api'],
+    'as' => 'api.sign.'
 ], function (Router $router) {
-    $router->post('sign', 'SignInController@sign')->name('api.sign.in');
-    $router->get('ranking', 'SignInController@ranking')->name('api.sign.ranking');
+    $router->post('in', 'SignInController@sign')->name('in');
+    $router->get('ranking', 'SignInController@ranking')->name('ranking');
 });
 
 // 后台

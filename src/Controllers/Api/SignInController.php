@@ -2,13 +2,13 @@
 
 namespace Qihucms\SignIn\Controllers\Api;
 
-use App\Http\Controllers\Api\ApiController;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Qihucms\SignIn\Resources\SignInCollection;
 use Qihucms\SignIn\SignIn;
 
-class SignInController extends ApiController
+class SignInController extends Controller
 {
     protected $signIn;
 
@@ -31,9 +31,9 @@ class SignInController extends ApiController
     {
         $result = $this->signIn->sign(Auth::id());
         if ($result['code'] < 110) {
-            return $this->jsonResponse($result, '签到成功');
+            return $this->jsonResponse($result, __('sign_in.message.' . $result['code']));
         }
-        return $this->jsonResponse($result, '签到失败', 422);
+        return $this->jsonResponse([__('sign_in.message.' . $result['code'])], '', 422);
     }
 
     /**
